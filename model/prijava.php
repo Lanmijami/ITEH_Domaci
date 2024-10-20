@@ -1,4 +1,7 @@
 <?php 
+
+//require "../home.php";
+
     class Prijava {
         public $id;
         public $predmet;
@@ -28,10 +31,20 @@
 
         public static function add(Prijava $prijava, mysqli $conn)
         {
-            $query_str = "INSERT INTO prijave(predmet, katedra, sala, datum) VALUES ('$prijava->predmet', '$prijava->katedra', '$prijava->sala', '$prijava->datum')";
-            return $conn->query($query_str);
+            $query_string = "INSERT INTO prijave(predmet, katedra, sala, datum) VALUES ('$prijava->predmet', '$prijava->katedra', '$prijava->sala', '$prijava->datum')";
+            return $conn->query($query_string);
         }
 
+        public static function getById($id, mysqli $conn){
+            $query_string = "SELECT FROM prijave WHERE id=$id";
+            return $conn->query($query_string);
+
+        }
+
+        public static function update($id, Prijava $prijava, mysqli $conn){
+
+            $query_string = "UPDATE prijave SET $prijava->predmet = Predmet $prijava->katedra = Katedra $prijava->sala = Sala $prijava->datum = Datum WHERE id = $id" ;
+        }
 
 }
 
