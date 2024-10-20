@@ -13,5 +13,5 @@
             echo "Doslo je do problema prilikom kreiranja prijave";
         }
         
-    }
+    }//Kom
 ?>
